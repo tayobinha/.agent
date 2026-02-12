@@ -1,4 +1,7 @@
 <#
+Rodar esse comando no terminal para baixar a pasta:
+iex (irm raw.githubusercontent.com/tayobinha/.agent/main/bootstrap.ps1)
+
 .SYNOPSIS
     Bootstraps the Antigravity Agent configuration from GitHub.
 .DESCRIPTION

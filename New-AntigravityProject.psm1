@@ -12,8 +12,13 @@ function New-AntigravityProject {
         return
     }
     
-    New-Item -ItemType SymbolicLink -Path $AgentPath -Target $GlobalAgentPath | Out-Null
-    Write-Host "Successfully linked global .agent to $Target" -ForegroundColor Green
+    try {
+        New-Item -ItemType Junction -Path $AgentPath -Target $GlobalAgentPath -ErrorAction Stop | Out-Null
+        Write-Host "Successfully linked global .agent to $Target (using Junction)" -ForegroundColor Green
+    }
+    catch {
+        Write-Error "Failed to create link: $_"
+    }
 }
 
 Export-ModuleMember -Function New-AntigravityProject
