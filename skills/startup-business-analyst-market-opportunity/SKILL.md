@@ -1,8 +1,13 @@
 ---
 name: startup-business-analyst-market-opportunity
-description: Generate comprehensive market opportunity analysis with TAM/SAM/SOM
+description: 'Generate comprehensive market opportunity analysis with TAM/SAM/SOM
+
   calculations
-allowed-tools: Read Write Edit Glob Grep Bash WebSearch WebFetch
+
+  '
+risk: critical
+source: community
+date_added: '2026-02-27'
 ---
 
 # Market Opportunity Analysis
@@ -238,3 +243,8 @@ This command pairs well with:
 - Quality depends on data availability - explain limitations
 - Update annually as market evolves
 - Conservative estimates build credibility with investors
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

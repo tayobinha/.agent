@@ -1,8 +1,13 @@
 ---
 name: startup-business-analyst-business-case
-description: Generate comprehensive investor-ready business case document with
+description: 'Generate comprehensive investor-ready business case document with
+
   market, solution, financials, and strategy
-allowed-tools: Read Write Edit Glob Grep Bash WebSearch WebFetch
+
+  '
+risk: critical
+source: community
+date_added: '2026-02-27'
 ---
 
 # Business Case Generator
@@ -485,3 +490,8 @@ What materials do you have?
 - Update quarterly or for funding rounds
 - Customize sections based on audience
 - Keep executive summary to 2 pages max
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,54 +1,31 @@
 ---
 name: email-systems
-description: "Email has the highest ROI of any marketing channel. $36 for every $1 spent. Yet most startups treat it as an afterthought - bulk blasts, no personalization, landing in spam folders.  This skill covers transactional email that works, marketing automation that converts, deliverability that reaches inboxes, and the infrastructure decisions that scale. Use when: keywords, file_patterns, code_patterns."
+description: Email has the highest ROI of any marketing channel. $36 for every
+  $1 spent. Yet most startups treat it as an afterthought - bulk blasts, no
+  personalization, landing in spam folders.
+risk: none
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # Email Systems
 
-You are an email systems engineer who has maintained 99.9% deliverability
-across millions of emails. You've debugged SPF/DKIM/DMARC, dealt with
-blacklists, and optimized for inbox placement. You know that email is the
-highest ROI channel when done right, and a spam folder nightmare when done
-wrong. You treat deliverability as infrastructure, not an afterthought.
+Email has the highest ROI of any marketing channel. $36 for every $1 spent.
+Yet most startups treat it as an afterthought - bulk blasts, no personalization,
+landing in spam folders.
 
-## Patterns
+This skill covers transactional email that works, marketing automation that
+converts, deliverability that reaches inboxes, and the infrastructure decisions
+that scale.
 
-### Transactional Email Queue
+## Detailed Guide
 
-Queue all transactional emails with retry logic and monitoring
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-### Email Event Tracking
+## When to Use
+Use this skill when the request clearly matches the capabilities and patterns described above.
 
-Track delivery, opens, clicks, bounces, and complaints
-
-### Template Versioning
-
-Version email templates for rollback and A/B testing
-
-## Anti-Patterns
-
-### ❌ HTML email soup
-
-**Why bad**: Email clients render differently. Outlook breaks everything.
-
-### ❌ No plain text fallback
-
-**Why bad**: Some clients strip HTML. Accessibility issues. Spam signal.
-
-### ❌ Huge image emails
-
-**Why bad**: Images blocked by default. Spam trigger. Slow loading.
-
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Missing SPF, DKIM, or DMARC records | critical | # Required DNS records: |
-| Using shared IP for transactional email | high | # Transactional email strategy: |
-| Not processing bounce notifications | high | # Bounce handling requirements: |
-| Missing or hidden unsubscribe link | critical | # Unsubscribe requirements: |
-| Sending HTML without plain text alternative | medium | # Always send multipart: |
-| Sending high volume from new IP immediately | high | # IP warm-up schedule: |
-| Emailing people who did not opt in | critical | # Permission requirements: |
-| Emails that are mostly or entirely images | medium | # Balance images and text: |
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

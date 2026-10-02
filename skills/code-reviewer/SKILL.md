@@ -1,12 +1,9 @@
 ---
 name: code-reviewer
-description: Elite code review expert specializing in modern AI-powered code
-  analysis, security vulnerabilities, performance optimization, and production
-  reliability. Masters static analysis tools, security scanning, and
-  configuration review with 2024/2025 best practices. Use PROACTIVELY for code
-  quality assurance.
-metadata:
-  model: opus
+description: "Elite code review expert specializing in modern AI-powered code"
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when
@@ -176,3 +173,8 @@ Master code reviewer focused on ensuring code quality, security, performance, an
 - "Analyze this caching strategy for race conditions and data consistency"
 - "Review this CI/CD pipeline for security and deployment best practices"
 - "Assess this error handling implementation for observability and debugging"
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

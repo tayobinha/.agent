@@ -1,10 +1,15 @@
 ---
 name: php-pro
-description: Write idiomatic PHP code with generators, iterators, SPL data
+description: 'Write idiomatic PHP code with generators, iterators, SPL data
+
   structures, and modern OOP features. Use PROACTIVELY for high-performance PHP
+
   applications.
-metadata:
-  model: inherit
+
+  '
+risk: critical
+source: community
+date_added: '2026-02-27'
 ---
 
 ## Use this skill when
@@ -61,3 +66,14 @@ You are a PHP expert specializing in modern PHP development with focus on perfor
 - Production-ready code with proper logging and monitoring hooks
 
 Prefer PHP standard library and built-in functions over third-party packages. Use external dependencies sparingly and only when necessary. Focus on working code over explanations.
+
+## Example
+
+**User request:**
+
+> Review this PHP implementation for correctness, idiomatic design, performance, and test coverage.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

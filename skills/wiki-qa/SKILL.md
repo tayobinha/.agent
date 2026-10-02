@@ -1,14 +1,16 @@
 ---
 name: wiki-qa
-description: Answers questions about a code repository using source file analysis. Use when the user asks a question about how something works, wants to understand a component, or needs help navigating the codebase.
+description: "Answer repository questions grounded entirely in source code evidence. Use when user asks a question about the codebase, user wants to understand a specific file, function, or component, or user asks \"how does X work\" or \"where is Y defined\"."
+risk: safe
+source: community
+date_added: "2026-02-27"
 ---
 
 # Wiki Q&A
 
 Answer repository questions grounded entirely in source code evidence.
 
-## When to Activate
-
+## When to Use
 - User asks a question about the codebase
 - User wants to understand a specific file, function, or component
 - User asks "how does X work" or "where is Y defined"
@@ -32,3 +34,17 @@ Answer repository questions grounded entirely in source code evidence.
 - ONLY use information from actual source files
 - NEVER invent, guess, or use external knowledge
 - Think step by step before answering
+
+### When to Use
+This skill is applicable to execute the workflow or actions described in the overview.
+
+## Example
+
+**User request:**
+
+> Answer this repository question using only source-code evidence, with direct file and line references.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

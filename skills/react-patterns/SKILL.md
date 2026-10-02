@@ -1,7 +1,9 @@
 ---
 name: react-patterns
-description: Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices.
-allowed-tools: Read, Write, Edit, Glob, Grep
+description: "Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices."
+risk: safe
+source: community
+date_added: "2026-02-27"
 ---
 
 # React Patterns
@@ -195,4 +197,26 @@ allowed-tools: Read, Write, Edit, Glob, Grep
 
 ---
 
+## 11. File Structure
+
+<img width="1150" height="1438" alt="image" src="https://github.com/user-attachments/assets/10369698-472c-4695-a494-2c0672103aa1" />
+
+Use this image as a reference for a better file structure of the project
+
+---
+
 > **Remember:** React is about composition. Build small, combine thoughtfully.
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.
+
+## Example
+
+**User request:**
+
+> Use @react-patterns for this task: Modern React patterns and principles.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

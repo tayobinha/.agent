@@ -1,8 +1,9 @@
 ---
 name: conductor-implement
-description: Execute tasks from a track's implementation plan following TDD workflow
-metadata:
-  argument-hint: "[track-id] [--task X.Y] [--phase N]"
+description: "Execute tasks from a track's implementation plan following TDD workflow"
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
 # Implement Track
@@ -386,3 +387,8 @@ If implementation is paused and resumed:
 4. **Keep plan.md updated** - Task status must reflect actual progress
 5. **Commit frequently** - Each task completion should be committed
 6. **Track all commits** - Record commit hashes in metadata.json for potential revert
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

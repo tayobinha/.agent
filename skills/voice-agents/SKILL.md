@@ -1,68 +1,122 @@
 ---
 name: voice-agents
-description: "Voice agents represent the frontier of AI interaction - humans speaking naturally with AI systems. The challenge isn't just speech recognition and synthesis, it's achieving natural conversation flow with sub-800ms latency while handling interruptions, background noise, and emotional nuance.  This skill covers two architectures: speech-to-speech (OpenAI Realtime API, lowest latency, most natural) and pipeline (STT→LLM→TTS, more control, easier to debug). Key insight: latency is the constraint. Hu"
+description: Voice agents represent the frontier of AI interaction - humans
+  speaking naturally with AI systems.
+risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # Voice Agents
 
-You are a voice AI architect who has shipped production voice agents handling
-millions of calls. You understand the physics of latency - every component
-adds milliseconds, and the sum determines whether conversations feel natural
-or awkward.
+Voice agents represent the frontier of AI interaction - humans speaking
+naturally with AI systems. The challenge isn't just speech recognition
+and synthesis, it's achieving natural conversation flow with sub-800ms
+latency while handling interruptions, background noise, and emotional
+nuance.
 
-Your core insight: Two architectures exist. Speech-to-speech (S2S) models like
-OpenAI Realtime API preserve emotion and achieve lowest latency but are less
-controllable. Pipeline architectures (STT→LLM→TTS) give you control at each
-step but add latency. Mos
+This skill covers two architectures: speech-to-speech (OpenAI Realtime API,
+lowest latency, most natural) and pipeline (STT→LLM→TTS, more control,
+easier to debug). Key insight: latency is the constraint. Humans expect
+responses in 500ms. Every millisecond matters.
 
-## Capabilities
+84% of organizations are increasing voice AI budgets in 2025. This is the
+year voice agents go mainstream.
 
-- voice-agents
-- speech-to-speech
-- speech-to-text
-- text-to-speech
-- conversational-ai
-- voice-activity-detection
-- turn-taking
-- barge-in-detection
-- voice-interfaces
+## Detailed Guide
 
-## Patterns
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-### Speech-to-Speech Architecture
+## Production Pipeline Example
+"""
+import { Deepgram } from '@deepgram/sdk';
+import { ElevenLabsClient } from 'elevenlabs';
+import OpenAI from 'openai';
 
-Direct audio-to-audio processing for lowest latency
+// Initialize clients
+const deepgram = new Deepgram(process.env.DEEPGRAM_API_KEY);
+const elevenlabs = new ElevenLabsClient();
+const openai = new OpenAI();
 
-### Pipeline Architecture
+async function processVoiceInput(audioStream) {
+  // 1. Speech-to-Text (Deepgram Nova-3)
+  const transcription = await deepgram.transcription.live({
+    model: 'nova-3',
+    punctuate: true,
+    endpointing: 300,  // ms of silence before end
+  });
 
-Separate STT → LLM → TTS for maximum control
+  transcription.on('transcript', async (data) => {
+    if (data.is_final && data.speech_final) {
+      const userText = data.channel.alternatives[0].transcript;
+      console.log('User:', userText);
+
+      // 2. LLM Processing
+      const completion = await openai.chat.completions.create({
+        model: 'gpt-4o-mini',
+        messages: [
+          { role: 'system', content: 'You are a concise voice assistant.' },
+          { role: 'user', content: userText }
+        ],
+        max_tokens: 150,  // Keep responses short for voice
+      });
+
+      const agentText = completion.choices[0].message.content;
+      console.log('Agent:', agentText);
+
+      // 3. Text-to-Speech (ElevenLabs)
+      const audioStream = await elevenlabs.textToSpeech.stream({
+        voice_id: 'voice_id_here',
+        text: agentText,
+        model_id: 'eleven_flash_v2_5',  // Lowest latency
+      });
+
+      // Stream to user
+      playAudioStream(audioStream);
+    }
+  });
+
+  // Pipe audio to transcription
+  audioStream.pipe(transcription);
+}
+"""
+
+### Optimization Tips:
+- Start TTS while LLM still generating (streaming)
+- Pre-compute first response segment during user speech
+- Use Flash/turbo models for latency
 
 ### Voice Activity Detection Pattern
 
 Detect when user starts/stops speaking
 
-## Anti-Patterns
+**When to use**: All voice agents need VAD for turn-taking
 
-### ❌ Ignoring Latency Budget
+# VOICE ACTIVITY DETECTION (VAD):
 
-### ❌ Silence-Only Turn Detection
+"""
+VAD Types:
+1. Energy-based: Simple, fast, noise-sensitive
+2. Model-based: Silero VAD, more accurate
+3. Semantic VAD: Understands meaning, best for conversation
+"""
 
-### ❌ Long Responses
+## When to Use
+- User mentions or implies: voice agent
+- User mentions or implies: speech to text
+- User mentions or implies: text to speech
+- User mentions or implies: whisper
+- User mentions or implies: elevenlabs
+- User mentions or implies: deepgram
+- User mentions or implies: realtime api
+- User mentions or implies: voice assistant
+- User mentions or implies: voice ai
+- User mentions or implies: conversational ai
+- User mentions or implies: tts
+- User mentions or implies: stt
+- User mentions or implies: asr
 
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Issue | critical | # Measure and budget latency for each component: |
-| Issue | high | # Target jitter metrics: |
-| Issue | high | # Use semantic VAD: |
-| Issue | high | # Implement barge-in detection: |
-| Issue | medium | # Constrain response length in prompts: |
-| Issue | medium | # Prompt for spoken format: |
-| Issue | medium | # Implement noise handling: |
-| Issue | medium | # Mitigate STT errors: |
-
-## Related Skills
-
-Works well with: `agent-tool-builder`, `multi-agent-orchestration`, `llm-architect`, `backend`
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

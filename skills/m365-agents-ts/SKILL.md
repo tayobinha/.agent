@@ -1,8 +1,9 @@
 ---
 name: m365-agents-ts
-description: |
-  Microsoft 365 Agents SDK for TypeScript/Node.js. Build multichannel agents for Teams/M365/Copilot Studio with AgentApplication routing, Express hosting, streaming responses, and Copilot Studio client integration. Triggers: "Microsoft 365 Agents SDK", "@microsoft/agents-hosting", "AgentApplication", "startServer", "streamingResponse", "Copilot Studio client", "@microsoft/agents-copilotstudio-client".
-package: @microsoft/agents-hosting, @microsoft/agents-hosting-express, @microsoft/agents-activity, @microsoft/agents-copilotstudio-client
+description: Microsoft 365 Agents SDK for TypeScript/Node.js.
+risk: critical
+source: community
+date_added: '2026-02-27'
 ---
 
 # Microsoft 365 Agents SDK (TypeScript)
@@ -168,7 +169,7 @@ window.WebChat.renderWebChat({
 
 | File | Contents |
 | --- | --- |
-| [references/acceptance-criteria.md](references/acceptance-criteria.md) | Import paths, hosting pipeline, streaming, and Copilot Studio patterns |
+| references/acceptance-criteria.md | Import paths, hosting pipeline, streaming, and Copilot Studio patterns |
 
 ## Reference Links
 
@@ -180,3 +181,11 @@ window.WebChat.renderWebChat({
 | @microsoft/agents-copilotstudio-client | https://learn.microsoft.com/en-us/javascript/api/%40microsoft/agents-copilotstudio-client?view=agents-sdk-js-latest |
 | Integrate with Copilot Studio | https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/integrate-with-mcs |
 | GitHub samples | https://github.com/microsoft/Agents/tree/main/samples/nodejs |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

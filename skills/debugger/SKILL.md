@@ -1,9 +1,13 @@
 ---
 name: debugger
-description: Debugging specialist for errors, test failures, and unexpected
+description: 'Debugging specialist for errors, test failures, and unexpected
+
   behavior. Use proactively when encountering any issues.
-metadata:
-  model: sonnet
+
+  '
+risk: safe
+source: community
+date_added: '2026-02-27'
 ---
 
 ## Use this skill when
@@ -47,3 +51,14 @@ For each issue, provide:
 - Prevention recommendations
 
 Focus on fixing the underlying issue, not just symptoms.
+
+## Example
+
+**User request:**
+
+> Investigate this failure with @debugger, prove the root cause, implement the smallest safe fix, and verify it.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

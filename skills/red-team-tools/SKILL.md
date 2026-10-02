@@ -1,10 +1,27 @@
 ---
-name: Red Team Tools and Methodology
-description: This skill should be used when the user asks to "follow red team methodology", "perform bug bounty hunting", "automate reconnaissance", "hunt for XSS vulnerabilities", "enumerate subdomains", or needs security researcher techniques and tool configurations from top bug bounty hunters.
-metadata:
-  author: zebbern
-  version: "1.1"
+name: red-team-tools
+description: "Implement proven methodologies and tool workflows from top security researchers for effective reconnaissance, vulnerability discovery, and bug bounty hunting. Automate common tasks while maintaining thorough coverage of attack surfaces."
+risk: offensive
+source: community
+author: zebbern
+date_added: "2026-02-27"
 ---
+
+> **⚠️ AUTHORIZED USE ONLY**
+> This skill is for educational purposes or authorized security assessments only.
+> You must have explicit, written permission from the system owner before using this tool.
+> Misuse of this tool is illegal and strictly prohibited.
+
+> **Mandatory confirmation gate**
+> Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
+> 1. Ask the user to state the exact target URL, IP, account, or resource.
+> 2. Ask the user to confirm written authorization and the permitted scope.
+> 3. Show the exact command(s) and explain their expected effect.
+> 4. Wait for explicit confirmation in the current conversation.
+>
+> Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
+
+> AUTHORIZED USE ONLY: Use this skill only for authorized security assessments, defensive validation, or controlled educational environments.
 
 # Red Team Tools and Methodology
 
@@ -308,3 +325,6 @@ amass enum -d target.com | httpx | nuclei -t ~/nuclei-templates/
 | Missing subdomains | Combine multiple enumeration sources |
 | API key errors | Verify keys in config files |
 | Tools not found | Install Go tools with `go install` |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

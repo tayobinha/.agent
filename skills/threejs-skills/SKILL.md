@@ -1,22 +1,41 @@
 ---
 name: threejs-skills
-description: "Three.js skills for creating 3D elements and interactive experiences"
-source: "https://github.com/CloudAI-X/threejs-skills"
+description: "Create 3D scenes, interactive experiences, and visual effects using Three.js. Use when user requests 3D graphics, WebGL experiences, 3D visualizations, animations, or interactive 3D elements."
 risk: safe
+source: "https://github.com/CloudAI-X/threejs-skills"
+date_added: "2026-02-27"
 ---
 
-# Threejs Skills
+# Three.js Skills
 
-## Overview
+Systematically create high-quality 3D scenes and interactive experiences using Three.js best practices.
 
-Three.js skills for creating 3D elements and interactive experiences
+## Detailed Guide
 
-## When to Use This Skill
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-Use this skill when you need to work with three.js skills for creating 3d elements and interactive experiences.
+## When to Use
+- Requests 3D visualizations or graphics ("create a 3D model", "show in 3D")
+- Wants interactive 3D experiences ("rotating cube", "explorable scene")
+- Needs WebGL or canvas-based rendering
+- Asks for animations, particles, or visual effects
+- Mentions Three.js, WebGL, or 3D rendering
+- Wants to visualize data in 3D space
 
-## Instructions
+## Example Workflow
 
-This skill provides guidance and patterns for three.js skills for creating 3d elements and interactive experiences.
+User: "Create an interactive 3D sphere that responds to mouse movement"
 
-For more information, see the [source repository](https://github.com/CloudAI-X/threejs-skills).
+1. **Setup**: Import Three.js, create scene/camera/renderer
+2. **Geometry**: Create `SphereGeometry(1, 32, 32)` for smooth sphere
+3. **Material**: Use `MeshStandardMaterial` for realistic look
+4. **Lighting**: Add ambient + directional lights
+5. **Interaction**: Track mouse position, update camera
+6. **Animation**: Rotate sphere, render continuously
+7. **Responsive**: Add window resize handler
+8. **Result**: Smooth, interactive 3D sphere ✓
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

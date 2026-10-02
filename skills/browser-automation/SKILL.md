@@ -1,70 +1,90 @@
 ---
 name: browser-automation
-description: "Browser automation powers web testing, scraping, and AI agent interactions. The difference between a flaky script and a reliable system comes down to understanding selectors, waiting strategies, and anti-detection patterns.  This skill covers Playwright (recommended) and Puppeteer, with patterns for testing, scraping, and agentic browser control. Key insight: Playwright won the framework war. Unless you need Puppeteer's stealth ecosystem or are Chrome-only, Playwright is the better choice in 202"
+description: Build reliable browser checks using observed UI state, semantic locators, bounded waits, isolated test data and explicit outcome verification.
+risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # Browser Automation
 
-You are a browser automation expert who has debugged thousands of flaky tests
-and built scrapers that run for years without breaking. You've seen the
-evolution from Selenium to Puppeteer to Playwright and understand exactly
-when each tool shines.
+Use the browser tool already selected by the user or installed in the project. Playwright, Puppeteer and Selenium have different integrations; choose from actual requirements rather than unsupported success-rate claims. Modified by AAS maintainers on 2026-09-05: removed unverified comparisons and bypass defaults, clarified waiting and evidence limits.
 
-Your core insight: Most automation failures come from three sources - bad
-selectors, missing waits, and detection systems. You teach people to think
-like the browser, use the right selectors, and let Playwright's auto-wait
-do its job.
+Separate tests of applications you control from interaction with an existing authenticated browser. Do not replace the latter with a fresh unauthenticated session or extract credentials to make an automation test work.
 
-For scraping, yo
+## Detailed Guide
 
-## Capabilities
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-- browser-automation
-- playwright
-- puppeteer
-- headless-browsers
-- web-scraping
-- browser-testing
-- e2e-testing
-- ui-automation
-- selenium-alternatives
+## Playwright Test Example
+"""
+import { test, expect } from '@playwright/test';
 
-## Patterns
+// Each test runs in isolated browser context
+test('user can add item to cart', async ({ page }) => {
+  // Fresh context - no cookies, no storage from other tests
+  await page.goto('/products');
+  await page.getByRole('button', { name: 'Add to Cart' }).click();
+  await expect(page.getByTestId('cart-count')).toHaveText('1');
+});
 
-### Test Isolation Pattern
+test('user can remove item from cart', async ({ page }) => {
+  // Completely isolated - cart is empty
+  await page.goto('/cart');
+  await expect(page.getByText('Your cart is empty')).toBeVisible();
+});
+"""
 
-Each test runs in complete isolation with fresh state
+## Good Examples (User-Facing)
+"""
+// By role - THE BEST CHOICE
+await page.getByRole('button', { name: 'Submit' }).click();
+await page.getByRole('link', { name: 'Sign up' }).click();
+await expect(page.getByRole('heading', { name: 'Dashboard' })).toBeVisible();
+await page.getByRole('textbox', { name: 'Search' }).fill('query');
 
-### User-Facing Locator Pattern
+// By text content
+await expect(page.getByText('Welcome back')).toBeVisible();
+await page.getByText(/Order #\d+/).click();  // Regex supported
 
-Select elements the way users see them
+// By label (forms)
+await page.getByLabel('Email address').fill('user@example.com');
+await page.getByLabel('Password').fill('secret');
 
-### Auto-Wait Pattern
+// By placeholder
+await page.getByPlaceholder('Search...').fill('query');
 
-Let Playwright wait automatically, never add manual waits
+// By test ID (when no user-facing option works)
+await page.getByTestId('submit-button').click();
+"""
 
-## Anti-Patterns
+## Bad Examples (Fragile)
+"""
+// DON'T - CSS selectors tied to structure
+await page.locator('.btn-primary.submit-form').click();
+await page.locator('#header > div > button:nth-child(2)').click();
 
-### ❌ Arbitrary Timeouts
+// DON'T - XPath tied to structure
+await page.locator('//div[@class="form"]/button[1]').click();
 
-### ❌ CSS/XPath First
+// DON'T - Auto-generated selectors
+await page.locator('[data-v-12345]').click();
+"""
 
-### ❌ Single Browser Context for Everything
+## When to Use
 
-## ⚠️ Sharp Edges
+Use to verify a real browser workflow, diagnose a UI timing failure or collect explicitly authorized page data. Inspect the current page and available tool APIs before selecting locators or actions.
 
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Issue | critical | # REMOVE all waitForTimeout calls |
-| Issue | high | # Use user-facing locators instead: |
-| Issue | high | # Use stealth plugins: |
-| Issue | high | # Each test must be fully isolated: |
-| Issue | medium | # Enable traces for failures: |
-| Issue | medium | # Set consistent viewport: |
-| Issue | high | # Add delays between requests: |
-| Issue | medium | # Wait for popup BEFORE triggering it: |
+## Worked example and prerequisites
 
-## Related Skills
+Input: exporting a reviewed JSON file from a local web app. Have the app running, the intended browser available and a synthetic form value. Observe the export control, register the download event before clicking, inspect the downloaded JSON and confirm that editing the input invalidates the old preview. Expected: one file containing the reviewed value, with no hidden project data or network submission.
 
-Works well with: `agent-tool-builder`, `workflow-automation`, `computer-use-agents`, `test-architect`
+Use explicit desktop/mobile viewports and inspect keyboard/focus behavior when the task includes usability. A locked desktop leaves interactive verification pending; unit tests and headless probes are separate evidence.
+
+## Limitations
+
+- Auto-waiting checks actionability, not business correctness or successful backend writes.
+- Screenshots, HTML, traces and auth-state files may contain private information; capture only the authorized scope.
+- Retrying a read can be safe; retrying checkout, deletion or sending a message may duplicate a side effect. Verify state before repeating it.
+- Resource blocking and mocked responses change the environment and cannot establish unmodified production behavior.
+- Examples require the project’s imports, runner and fixture routes; no browser, service or account is installed by this skill.

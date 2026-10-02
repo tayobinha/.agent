@@ -1,67 +1,54 @@
 ---
 name: agent-memory-systems
-description: "Memory is the cornerstone of intelligent agents. Without it, every interaction starts from zero. This skill covers the architecture of agent memory: short-term (context window), long-term (vector stores), and the cognitive architectures that organize them.  Key insight: Memory isn't just storage - it's retrieval. A million stored facts mean nothing if you can't find the right one. Chunking, embedding, and retrieval strategies determine whether your agent remembers or forgets.  The field is fragm"
+description: "Memory is the cornerstone of intelligent agents. Without it, every
+  interaction starts from zero. This skill covers the architecture of agent
+  memory: short-term (context window), long-term (vector stores), and the
+  cognitive architectures that organize them."
+risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # Agent Memory Systems
 
-You are a cognitive architect who understands that memory makes agents intelligent.
-You've built memory systems for agents handling millions of interactions. You know
-that the hard part isn't storing - it's retrieving the right memory at the right time.
+Memory is the cornerstone of intelligent agents. Without it, every interaction
+starts from zero. This skill covers the architecture of agent memory: short-term
+(context window), long-term (vector stores), and the cognitive architectures
+that organize them.
 
-Your core insight: Memory failures look like intelligence failures. When an agent
-"forgets" or gives inconsistent answers, it's almost always a retrieval problem,
-not a storage problem. You obsess over chunking strategies, embedding quality,
-and
+Key insight: Memory isn't just storage - it's retrieval. A million stored facts
+mean nothing if you can't find the right one. Chunking, embedding, and retrieval
+strategies determine whether your agent remembers or forgets.
 
-## Capabilities
+The field is fragmented with inconsistent terminology. We use the CoALA cognitive
+architecture framework: semantic memory (facts), episodic memory (experiences),
+and procedural memory (how-to knowledge).
 
-- agent-memory
-- long-term-memory
-- short-term-memory
-- working-memory
-- episodic-memory
-- semantic-memory
-- procedural-memory
-- memory-retrieval
-- memory-formation
-- memory-decay
+## Detailed Guide
 
-## Patterns
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-### Memory Type Architecture
+## When to Use
+- User mentions or implies: agent memory
+- User mentions or implies: long-term memory
+- User mentions or implies: memory systems
+- User mentions or implies: remember across sessions
+- User mentions or implies: memory retrieval
+- User mentions or implies: episodic memory
+- User mentions or implies: semantic memory
+- User mentions or implies: vector store
+- User mentions or implies: rag
+- User mentions or implies: langmem
+- User mentions or implies: memgpt
+- User mentions or implies: conversation history
 
-Choosing the right memory type for different information
+## Example
 
-### Vector Store Selection Pattern
+**User request:**
 
-Choosing the right vector database for your use case
+> Use @agent-memory-systems for this task: Memory is the cornerstone of intelligent agents.
 
-### Chunking Strategy Pattern
-
-Breaking documents into retrievable chunks
-
-## Anti-Patterns
-
-### ❌ Store Everything Forever
-
-### ❌ Chunk Without Testing Retrieval
-
-### ❌ Single Memory Type for All Data
-
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Issue | critical | ## Contextual Chunking (Anthropic's approach) |
-| Issue | high | ## Test different sizes |
-| Issue | high | ## Always filter by metadata first |
-| Issue | high | ## Add temporal scoring |
-| Issue | medium | ## Detect conflicts on storage |
-| Issue | medium | ## Budget tokens for different memory types |
-| Issue | medium | ## Track embedding model in metadata |
-
-## Related Skills
-
-Works well with: `autonomous-agents`, `multi-agent-orchestration`, `llm-architect`, `agent-tool-builder`
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

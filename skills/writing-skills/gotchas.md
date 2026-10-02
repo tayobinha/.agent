@@ -15,7 +15,7 @@ Tribal knowledge to avoid common mistakes.
 ```yaml
 # ❌ BAD: Mixed list and map
 metadata:
-  references: 
+  references:
   triggers: a, b, c
   - item1
   - item2
@@ -172,7 +172,7 @@ See [my-skill] for details.
 See /home/user/.config/opencode/skills/my-skill/SKILL.md
 
 # ✅ GOOD: Skill protocol
-See [my-skill](skill://my-skill)
+See my-skill
 ```
 
 ## Tier Selection

@@ -1,7 +1,9 @@
 ---
 name: agent-memory-mcp
-author: Amit Rathiesh
-description: A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Architecture, Patterns, Decisions).
+description: "A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Architecture, Patterns, Decisions)."
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
 # Agent Memory Skill
@@ -14,18 +16,29 @@ This skill provides a persistent, searchable memory bank that automatically sync
 
 ## Setup
 
-1. **Clone the Repository**:
-   Clone the `agentMemory` project into your agent's workspace or a parallel directory:
+1. **Review the Repository**:
+   Ask the user to approve network access to the named repository, then clone the
+   pinned revision into a temporary directory, not an active skills path:
 
    ```bash
-   git clone https://github.com/webzler/agentMemory.git .agent/skills/agent-memory
+   review_dir="$(mktemp -d)"
+   git clone --filter=blob:none https://github.com/webzler/agentMemory.git "$review_dir/agent-memory"
+   git -C "$review_dir/agent-memory" checkout --detach 0409b7b7bb6fe443d0d4b6a6b1ee0d4df214f3cd
+   git -C "$review_dir/agent-memory" ls-files
    ```
 
-2. **Install Dependencies**:
+   Read all bundled files and inspect `package.json`, lockfiles, lifecycle
+   scripts, network behavior, credential access, and filesystem scope. Show the
+   findings and exact commit, then wait for explicit user approval.
+
+2. **Install the Reviewed Revision**:
+
+   Copy the reviewed tree to a user-selected location after approval. Install
+   locked dependencies only after the package scripts have been reviewed:
 
    ```bash
-   cd .agent/skills/agent-memory
-   npm install
+   cd <approved-agent-memory-directory>
+   npm ci
    npm run compile
    ```
 
@@ -80,3 +93,12 @@ npm run start-dashboard <absolute_path_to_target_workspace>
 ```
 
 Access at: `http://localhost:3333`
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+- Re-review upstream before changing the pinned revision; a commit pin improves reproducibility but is not a trust guarantee.

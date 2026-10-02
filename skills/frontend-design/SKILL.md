@@ -1,396 +1,281 @@
 ---
 name: frontend-design
-description: Design thinking and decision-making for web UI. Use when designing components, layouts, color schemes, typography, or creating aesthetic interfaces. Teaches principles, not fixed values.
-allowed-tools: Read, Write, Edit, Glob, Grep, Bash
+description: "Design and implement a distinctive frontend within the product’s existing brand, accessibility, performance and framework constraints."
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
-# Frontend Design System
+# Frontend Design
 
-> **Philosophy:** Every pixel has purpose. Restraint is luxury. User psychology drives decisions.
-> **Core Principle:** THINK, don't memorize. ASK, don't assume.
+Modified by AAS maintainers on 2026-09-05: clarified design constraints, subjective scoring and verification. The bundled Apache-2.0 license is preserved.
 
----
+You are a **frontend designer-engineer**, not a layout generator.
 
-## 🎯 Selective Reading Rule (MANDATORY)
+Your goal is to create **memorable, high-craft interfaces** that:
 
-**Read REQUIRED files always, OPTIONAL only when needed:**
+* Avoid generic “AI UI” patterns
+* Express a clear aesthetic point of view
+* Implement the requested interactions and report what was actually verified
+* Translate design intent directly into code
 
-| File | Status | When to Read |
-|------|--------|--------------|
-| [ux-psychology.md](ux-psychology.md) | 🔴 **REQUIRED** | Always read first! |
-| [color-system.md](color-system.md) | ⚪ Optional | Color/palette decisions |
-| [typography-system.md](typography-system.md) | ⚪ Optional | Font selection/pairing |
-| [visual-effects.md](visual-effects.md) | ⚪ Optional | Glassmorphism, shadows, gradients |
-| [animation-guide.md](animation-guide.md) | ⚪ Optional | Animation needed |
-| [motion-graphics.md](motion-graphics.md) | ⚪ Optional | Lottie, GSAP, 3D |
-| [decision-trees.md](decision-trees.md) | ⚪ Optional | Context templates |
-
-> 🔴 **ux-psychology.md = ALWAYS READ. Others = only if relevant.**
+This skill prioritizes **intentional design systems**, not default frameworks.
 
 ---
 
-## 🔧 Runtime Scripts
+## 1. Core Design Mandate
 
-**Execute these for audits (don't read, just run):**
+For new visual directions, consider all four; existing product constraints take precedence:
 
-| Script | Purpose | Usage |
-|--------|---------|-------|
-| `scripts/ux_audit.py` | UX Psychology & Accessibility Audit | `python scripts/ux_audit.py <project_path>` |
+1. **Intentional Aesthetic Direction**
+   A named, explicit design stance (e.g. *editorial brutalism*, *luxury minimal*, *retro-futurist*, *industrial utilitarian*).
 
----
+2. **Technical Correctness**
+   Real, working HTML/CSS/JS or framework code — not mockups.
 
-## ⚠️ CRITICAL: ASK BEFORE ASSUMING (MANDATORY)
+3. **Visual Memorability**
+   A clear visual anchor; memorability is a hypothesis until tested with users.
 
-> **STOP! If the user's request is open-ended, DO NOT default to your favorites.**
+4. **Cohesive Restraint**
+   No random decoration. Every flourish must serve the aesthetic thesis.
 
-### When User Prompt is Vague, ASK:
-
-**Color not specified?** Ask:
-> "What color palette do you prefer? (blue/green/orange/neutral/other?)"
-
-**Style not specified?** Ask: 
-> "What style are you going for? (minimal/bold/retro/futuristic/organic?)"
-
-**Layout not specified?** Ask:
-> "Do you have a layout preference? (single column/grid/asymmetric/full-width?)"
-
-### ⛔ DEFAULT TENDENCIES TO AVOID (ANTI-SAFE HARBOR):
-
-| AI Default Tendency | Why It's Bad | Think Instead |
-|---------------------|--------------|---------------|
-| **Bento Grids (Modern Cliché)** | Used in every AI design | Why does this content NEED a grid? |
-| **Hero Split (Left/Right)** | Predictable & Boring | How about Massive Typography or Vertical Narrative? |
-| **Mesh/Aurora Gradients** | The "new" lazy background | What's a radical color pairing? |
-| **Glassmorphism** | AI's idea of "premium" | How about solid, high-contrast flat? |
-| **Deep Cyan / Fintech Blue** | Safe harbor from purple ban | Why not Red, Black, or Neon Green? |
-| **"Orchestrate / Empower"** | AI-generated copywriting | How would a human say this? |
-| Dark background + neon glow | Overused, "AI look" | What does the BRAND actually need? |
-| **Rounded everything** | Generic/Safe | Where can I use sharp, brutalist edges? |
-
-> 🔴 **"Every 'safe' structure you choose brings you one step closer to a generic template. TAKE RISKS."**
+Reuse an established design system when it serves the task. Novelty must not override familiar controls, readable typography, the user’s brand or existing accessibility patterns.
 
 ---
 
-## 1. Constraint Analysis (ALWAYS FIRST)
+## 2. Design Feasibility & Impact Index (DFII)
 
-Before any design work, ANSWER THESE or ASK USER:
+DFII is an optional, subjective discussion aid with no validated predictive power. Prefer concrete user tasks and measurable checks over a total score.
 
-| Constraint | Question | Why It Matters |
-|------------|----------|----------------|
-| **Timeline** | How much time? | Determines complexity |
-| **Content** | Ready or placeholder? | Affects layout flexibility |
-| **Brand** | Existing guidelines? | May dictate colors/fonts |
-| **Tech** | What stack? | Affects capabilities |
-| **Audience** | Who exactly? | Drives all visual decisions |
+### DFII Dimensions (1–5)
 
-### Audience → Design Approach
+| Dimension                      | Question                                                     |
+| ------------------------------ | ------------------------------------------------------------ |
+| **Aesthetic Impact**           | How visually distinctive and memorable is this direction?    |
+| **Context Fit**                | Does this aesthetic suit the product, audience, and purpose? |
+| **Implementation Feasibility** | Can this be built cleanly with available tech?               |
+| **Performance Safety**         | Will it remain fast and accessible?                          |
+| **Consistency Risk**           | Can this be maintained across screens/components?            |
 
-| Audience | Think About |
-|----------|-------------|
-| **Gen Z** | Bold, fast, mobile-first, authentic |
-| **Millennials** | Clean, minimal, value-driven |
-| **Gen X** | Familiar, trustworthy, clear |
-| **Boomers** | Readable, high contrast, simple |
-| **B2B** | Professional, data-focused, trust |
-| **Luxury** | Restrained elegance, whitespace |
+### Scoring Formula
+
+```
+DFII = (Impact + Fit + Feasibility + Performance) − Consistency Risk
+```
+
+**Arithmetic range:** `-1 → +19` when each dimension is scored from 1 to 5. This is not a certification or a release gate.
+
+### Interpretation
+
+| DFII      | Meaning   | Action                      |
+| --------- | --------- | --------------------------- |
+| **12–19** | Excellent | Discuss the tradeoffs               |
+| **8–11**  | Strong    | Proceed with discipline     |
+| **4–7**   | Risky     | Reduce scope or effects     |
+| **≤ 3**   | Weak      | Rethink aesthetic direction |
 
 ---
 
-## 2. UX Psychology Principles
+## 3. Mandatory Design Thinking Phase
 
-### Core Laws (Internalize These)
+Before writing code, explicitly define:
 
-| Law | Principle | Application |
-|-----|-----------|-------------|
-| **Hick's Law** | More choices = slower decisions | Limit options, use progressive disclosure |
-| **Fitts' Law** | Bigger + closer = easier to click | Size CTAs appropriately |
-| **Miller's Law** | ~7 items in working memory | Chunk content into groups |
-| **Von Restorff** | Different = memorable | Make CTAs visually distinct |
-| **Serial Position** | First/last remembered most | Key info at start/end |
+### 1. Purpose
 
-### Emotional Design Levels
+* What action should this interface enable?
+* Is it persuasive, functional, exploratory, or expressive?
 
-```
-VISCERAL (instant)  → First impression: colors, imagery, overall feel
-BEHAVIORAL (use)    → Using it: speed, feedback, efficiency
-REFLECTIVE (memory) → After: "I like what this says about me"
-```
+### 2. Tone (Choose One Dominant Direction)
 
-### Trust Building
+Examples (non-exhaustive):
 
-- Security indicators on sensitive actions
-- Social proof where relevant
-- Clear contact/support access
-- Consistent, professional design
-- Transparent policies
+* Brutalist / Raw
+* Editorial / Magazine
+* Luxury / Refined
+* Retro-futuristic
+* Industrial / Utilitarian
+* Organic / Natural
+* Playful / Toy-like
+* Maximalist / Chaotic
+* Minimalist / Severe
 
----
+⚠️ Do not blend more than **two**.
 
-## 3. Layout Principles
+### 3. Differentiation Anchor
 
-### Golden Ratio (φ = 1.618)
+Answer:
 
-```
-Use for proportional harmony:
-├── Content : Sidebar = roughly 62% : 38%
-├── Each heading size = previous × 1.618 (for dramatic scale)
-├── Spacing can follow: sm → md → lg (each × 1.618)
-```
+> “If this were screenshotted with the logo removed, how would someone recognize it?”
 
-### 8-Point Grid Concept
-
-```
-All spacing and sizing in multiples of 8:
-├── Tight: 4px (half-step for micro)
-├── Small: 8px
-├── Medium: 16px
-├── Large: 24px, 32px
-├── XL: 48px, 64px, 80px
-└── Adjust based on content density
-```
-
-### Key Sizing Principles
-
-| Element | Consideration |
-|---------|---------------|
-| **Touch targets** | Minimum comfortable tap size |
-| **Buttons** | Height based on importance hierarchy |
-| **Inputs** | Match button height for alignment |
-| **Cards** | Consistent padding, breathable |
-| **Reading width** | 45-75 characters optimal |
+This anchor must be visible in the final UI.
 
 ---
 
-## 4. Color Principles
+## 4. Aesthetic Execution Choices
 
-### 60-30-10 Rule
+### Typography
 
-```
-60% → Primary/Background (calm, neutral base)
-30% → Secondary (supporting areas)
-10% → Accent (CTAs, highlights, attention)
-```
+* Preserve brand fonts and use system fonts when they improve speed, readability or platform fit
+* Choose:
 
-### Color Psychology (For Decision Making)
+  * 1 expressive display font
+  * 1 restrained body font
+* Use typography structurally (scale, rhythm, contrast)
 
-| If You Need... | Consider Hues | Avoid |
-|----------------|---------------|-------|
-| Trust, calm | Blue family | Aggressive reds |
-| Growth, nature | Green family | Industrial grays |
-| Energy, urgency | Orange, red | Passive blues |
-| Luxury, creativity | Deep Teal, Gold, Emerald | Cheap-feeling brights |
-| Clean, minimal | Neutrals | Overwhelming color |
+### Color & Theme
 
-### Selection Process
+* Commit to a **dominant color story**
+* Use CSS variables exclusively
+* Prefer:
 
-1. **What's the industry?** (narrows options)
-2. **What's the emotion?** (picks primary)
-3. **Light or dark mode?** (sets foundation)
-4. **ASK USER** if not specified
+  * One dominant tone
+  * One accent
+  * One neutral system
+* Avoid evenly-balanced palettes
 
-For detailed color theory: [color-system.md](color-system.md)
+### Spatial Composition
 
----
+* Break the grid intentionally
+* Use:
 
-## 5. Typography Principles
+  * Asymmetry
+  * Overlap
+  * Negative space OR controlled density
+* White space is a design element, not absence
 
-### Scale Selection
+### Motion
 
-| Content Type | Scale Ratio | Feel |
-|--------------|-------------|------|
-| Dense UI | 1.125-1.2 | Compact, efficient |
-| General web | 1.25 | Balanced (most common) |
-| Editorial | 1.333 | Readable, spacious |
-| Hero/display | 1.5-1.618 | Dramatic impact |
+* Motion must be:
 
-### Pairing Concept
+  * Purposeful
+  * Sparse
+  * High-impact
+* Prefer:
 
-```
-Contrast + Harmony:
-├── DIFFERENT enough for hierarchy
-├── SIMILAR enough for cohesion
-└── Usually: display + neutral, or serif + sans
-```
+  * One strong entrance sequence
+  * A few meaningful hover states
+* Avoid decorative micro-motion spam
 
-### Readability Rules
+### Texture & Depth
 
-- **Line length**: 45-75 characters optimal
-- **Line height**: 1.4-1.6 for body text
-- **Contrast**: Check WCAG requirements
-- **Size**: 16px+ for body on web
+Use when appropriate:
 
-For detailed typography: [typography-system.md](typography-system.md)
+* Noise / grain overlays
+* Gradient meshes
+* Layered translucency
+* Custom borders or dividers
+* Shadows with narrative intent (not defaults)
 
 ---
 
-## 6. Visual Effects Principles
+## 5. Implementation Standards
 
-### Glassmorphism (When Appropriate)
+### Code Requirements
 
-```
-Key properties:
-├── Semi-transparent background
-├── Backdrop blur
-├── Subtle border for definition
-└── ⚠️ **WARNING:** Standard blue/white glassmorphism is a modern cliché. Use it radically or not at all.
-```
+* Clean, readable, and modular
+* No dead styles
+* No unused animations
+* Semantic HTML
+* Accessible by default (contrast, focus, keyboard)
 
-### Shadow Hierarchy
+### Framework Guidance
 
-```
-Elevation concept:
-├── Higher elements = larger shadows
-├── Y-offset > X-offset (light from above)
-├── Multiple layers = more realistic
-└── Dark mode: may need glow instead
-```
+* **HTML/CSS**: Prefer native features, modern CSS
+* **React**: Functional components, composable styles
+* **Animation**:
 
-### Gradient Usage
+  * CSS-first
+  * Framer Motion only when justified
 
-```
-Harmonious gradients:
-├── Adjacent colors on wheel (analogous)
-├── OR same hue, different lightness
-├── Avoid harsh complementary pairs
-├── 🚫 **NO Mesh/Aurora Gradients** (floating blobs)
-└── VARY from project to project radically
-```
+### Complexity Matching
 
-For complete effects guide: [visual-effects.md](visual-effects.md)
+* Maximalist design → complex code (animations, layers)
+* Minimalist design → extremely precise spacing & type
+
+Mismatch = failure.
 
 ---
 
-## 7. Animation Principles
+## 6. Required Output Structure
 
-### Timing Concept
+When generating frontend work:
 
-```
-Duration based on:
-├── Distance (further = longer)
-├── Size (larger = slower)
-├── Importance (critical = clear)
-└── Context (urgent = fast, luxury = slow)
-```
+### 1. Design Direction Summary
 
-### Easing Selection
+* Aesthetic name
+* DFII score
+* Key inspiration (conceptual, not visual plagiarism)
 
-| Action | Easing | Why |
-|--------|--------|-----|
-| Entering | Ease-out | Decelerate, settle in |
-| Leaving | Ease-in | Accelerate, exit |
-| Emphasis | Ease-in-out | Smooth, deliberate |
-| Playful | Bounce | Fun, energetic |
+### 2. Design System Snapshot
 
-### Performance
+* Fonts (with rationale)
+* Color variables
+* Spacing rhythm
+* Motion philosophy
 
-- Animate only transform and opacity
-- Respect reduced-motion preference
-- Test on low-end devices
+### 3. Implementation
 
-For animation patterns: [animation-guide.md](animation-guide.md), for advanced: [motion-graphics.md](motion-graphics.md)
+* Full working code
+* Comments only where intent isn’t obvious
+
+### 4. Verification
+
+State which primary action, responsive widths, keyboard/focus behavior, contrast and loading/error states were checked. Include observed results and remaining gaps.
 
 ---
 
-## 8. "Wow Factor" Checklist
+## 7. Avoid
 
-### Premium Indicators
-
-- [ ] Generous whitespace (luxury = breathing room)
-- [ ] Subtle depth and dimension
-- [ ] Smooth, purposeful animations
-- [ ] Attention to detail (alignment, consistency)
-- [ ] Cohesive visual rhythm
-- [ ] Custom elements (not all defaults)
-
-### Trust Builders
-
-- [ ] Security cues where appropriate
-- [ ] Social proof / testimonials
-- [ ] Clear value proposition
-- [ ] Professional imagery
-- [ ] Consistent design language
-
-### Emotional Triggers
-
-- [ ] Hero that evokes intended emotion
-- [ ] Human elements (faces, stories)
-- [ ] Progress/achievement indicators
-- [ ] Moments of delight
+- Replacing established components merely to look unusual.
+- Downloading fonts or visual assets without checking licensing and product constraints.
+- Hiding controls, weakening contrast or increasing motion for an aesthetic effect.
+- Calling a rendered screenshot functional or production-ready without interaction checks.
 
 ---
 
-## 9. Anti-Patterns (What NOT to Do)
+## 8. Integration With Other Skills
 
-### ❌ Lazy Design Indicators
-
-- Default system fonts without consideration
-- Stock imagery that doesn't match
-- Inconsistent spacing
-- Too many competing colors
-- Walls of text without hierarchy
-- Inaccessible contrast
-
-### ❌ AI Tendency Patterns (AVOID!)
-
-- **Same colors every project**
-- **Dark + neon as default**
-- **Purple/violet everything (PURPLE BAN ✅)**
-- **Bento grids for simple landing pages**
-- **Mesh Gradients & Glow Effects**
-- **Same layout structure / Vercel clone**
-- **Not asking user preferences**
-
-### ❌ Dark Patterns (Unethical)
-
-- Hidden costs
-- Fake urgency
-- Forced actions
-- Deceptive UI
-- Confirmshaming
+* **page-cro** → Layout hierarchy & conversion flow
+* **copywriting** → Typography & message rhythm
+* **marketing-psychology** → Visual persuasion & bias alignment
+* **branding** → Visual identity consistency
+* **ab-test-setup** → Variant-safe design systems
 
 ---
 
-## 10. Decision Process Summary
+## 9. Operator Checklist
 
-```
-For EVERY design task:
+Before finalizing output:
 
-1. CONSTRAINTS
-   └── What's the timeline, brand, tech, audience?
-   └── If unclear → ASK
-
-2. CONTENT
-   └── What content exists?
-   └── What's the hierarchy?
-
-3. STYLE DIRECTION
-   └── What's appropriate for context?
-   └── If unclear → ASK (don't default!)
-
-4. EXECUTION
-   └── Apply principles above
-   └── Check against anti-patterns
-
-5. REVIEW
-   └── "Does this serve the user?"
-   └── "Is this different from my defaults?"
-   └── "Would I be proud of this?"
-```
+* [ ] Clear aesthetic direction stated
+* [ ] Subjective design judgments are separated from observed usability checks
+* [ ] One memorable design anchor
+* [ ] Brand and existing component conventions are respected
+* [ ] Code matches design ambition
+* [ ] Keyboard, focus, responsive layout and performance checks recorded
 
 ---
 
-## Reference Files
+## 10. Questions to Ask (If Needed)
 
-For deeper guidance on specific areas:
-
-- [color-system.md](color-system.md) - Color theory and selection process
-- [typography-system.md](typography-system.md) - Font pairing and scale decisions
-- [visual-effects.md](visual-effects.md) - Effects principles and techniques
-- [animation-guide.md](animation-guide.md) - Motion design principles
-- [motion-graphics.md](motion-graphics.md) - Advanced: Lottie, GSAP, SVG, 3D, Particles
-- [decision-trees.md](decision-trees.md) - Context-specific templates
-- [ux-psychology.md](ux-psychology.md) - User psychology deep dive
+1. Who is this for, emotionally?
+2. Should this feel trustworthy, exciting, calm, or provocative?
+3. Is memorability or clarity more important?
+4. Will this scale to other pages/components?
+5. What should users *feel* in the first 3 seconds?
 
 ---
 
-> **Remember:** Design is THINKING, not copying. Every project deserves fresh consideration based on its unique context and users. **Avoid the Modern SaaS Safe Harbor!**
+## When to Use
+
+Use for a new page, component or deliberate visual refresh with a known primary user action. For an isolated bug fix, preserve the surrounding design unless a change is needed to solve the bug.
+
+## Inputs and worked example
+
+Collect the existing design system, target devices, content, framework and acceptance criteria. Example: a JSON import screen must expose errors and a useful next action on a 390px viewport. Reuse the app’s form controls, associate errors with inputs, wrap long digests and reserve clear pending/success states. Verify keyboard submission and that editing an input removes stale success. Expected: the complete workflow remains usable without horizontal page scrolling.
+
+## Limitations
+
+- Visual distinctiveness does not prove usability or conversion impact.
+- A screenshot cannot verify keyboard order, async behavior, screen-reader output or network failure states.
+- Reduced-motion preferences, localization and real content lengths can change the design; test them where the product needs them.

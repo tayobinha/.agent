@@ -1,13 +1,24 @@
 ---
 name: firmware-analyst
-description: Expert firmware analyst specializing in embedded systems, IoT
-  security, and hardware reverse engineering. Masters firmware extraction,
-  analysis, and vulnerability research for routers, IoT devices, automotive
-  systems, and industrial controllers. Use PROACTIVELY for firmware security
-  audits, IoT penetration testing, or embedded systems research.
-metadata:
-  model: opus
+description: Expert firmware analyst specializing in embedded systems, IoT security, and hardware reverse engineering.
+risk: offensive
+source: community
+date_added: '2026-02-27'
 ---
+
+> **⚠️ AUTHORIZED USE ONLY**
+> This skill is for educational purposes or authorized security assessments only.
+> You must have explicit, written permission from the system owner before using this tool.
+> Misuse of this tool is illegal and strictly prohibited.
+
+> **Mandatory confirmation gate**
+> Before running any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target:
+> 1. Ask the user to state the exact target URL, IP, account, or resource.
+> 2. Ask the user to confirm written authorization and the permitted scope.
+> 3. Show the exact command(s) and explain their expected effect.
+> 4. Wait for explicit confirmation in the current conversation.
+>
+> Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
 
 # Download from vendor
 wget http://vendor.com/firmware/update.bin
@@ -318,3 +329,8 @@ sudo chroot squashfs-root /usr/bin/qemu-arm-static /bin/httpd
 4. **Analyze systematically**: Follow structured analysis workflow
 5. **Identify issues**: Security vulnerabilities and misconfigurations
 6. **Document findings**: Clear reporting with remediation guidance
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,7 +1,9 @@
 ---
 name: busybox-on-windows
-description: How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows.
-license: MIT
+description: "How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows."
+risk: safe
+source: community
+date_added: "2026-02-27"
 ---
 
 BusyBox is a single binary that implements many common Unix tools.
@@ -28,3 +30,17 @@ If you need to run a UNIX command under another CWD, then use the absolute path 
 
 Documentation: https://frippery.org/busybox/
 Original BusyBox: https://busybox.net/
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.
+
+## Example
+
+**User request:**
+
+> Use @busybox-on-windows for this task: How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,79 +1,34 @@
 ---
 name: vercel-deployment
-description: "Expert knowledge for deploying to Vercel with Next.js Use when: vercel, deploy, deployment, hosting, production."
-source: vibeship-spawner-skills (Apache 2.0)
+description: Expert knowledge for deploying to Vercel with Next.js
 risk: safe
+source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # Vercel Deployment
 
-You are a Vercel deployment expert. You understand the platform's
-capabilities, limitations, and best practices for deploying Next.js
-applications at scale.
+Expert knowledge for deploying to Vercel with Next.js
 
-## When to Use This Skill
+## Detailed Guide
 
-Use this skill when:
-- Deploying to Vercel
-- Working with Vercel deployment
-- Hosting applications on Vercel
-- Deploying to production on Vercel
-- Configuring Vercel for Next.js applications
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-Your core principles:
-1. Environment variables - different for dev/preview/production
-2. Edge vs Serverless - choose the right runtime
-3. Build optimization - minimize cold starts and bundle size
-4. Preview deployments - use for testing before production
-5. Monitoring - set up analytics and error tracking
+## Prerequisites
 
-## Capabilities
+- Required skills: nextjs-app-router
 
-- vercel
-- deployment
-- edge-functions
-- serverless
-- environment-variables
+## When to Use
+- User mentions or implies: vercel
+- User mentions or implies: deploy
+- User mentions or implies: deployment
+- User mentions or implies: hosting
+- User mentions or implies: production
+- User mentions or implies: environment variables
+- User mentions or implies: edge function
+- User mentions or implies: serverless function
 
-## Requirements
-
-- nextjs-app-router
-
-## Patterns
-
-### Environment Variables Setup
-
-Properly configure environment variables for all environments
-
-### Edge vs Serverless Functions
-
-Choose the right runtime for your API routes
-
-### Build Optimization
-
-Optimize build for faster deployments and smaller bundles
-
-## Anti-Patterns
-
-### ❌ Secrets in NEXT_PUBLIC_
-
-### ❌ Same Database for Preview
-
-### ❌ No Build Cache
-
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| NEXT_PUBLIC_ exposes secrets to the browser | critical | Only use NEXT_PUBLIC_ for truly public values: |
-| Preview deployments using production database | high | Set up separate databases for each environment: |
-| Serverless function too large, slow cold starts | high | Reduce function size: |
-| Edge runtime missing Node.js APIs | high | Check API compatibility before using edge: |
-| Function timeout causes incomplete operations | medium | Handle long operations properly: |
-| Environment variable missing at runtime but present at build | medium | Understand when env vars are read: |
-| CORS errors calling API routes from different domain | medium | Add CORS headers to API routes: |
-| Page shows stale data after deployment | medium | Control caching behavior: |
-
-## Related Skills
-
-Works well with: `nextjs-app-router`, `supabase-backend`
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

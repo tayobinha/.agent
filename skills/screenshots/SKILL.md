@@ -1,8 +1,9 @@
 ---
 name: screenshots
 description: "Generate marketing screenshots of your app using Playwright. Use when the user wants to create screenshots for Product Hunt, social media, landing pages, or documentation."
-source: "https://github.com/Shpigford/skills/tree/main/screenshots"
 risk: safe
+source: "https://github.com/Shpigford/skills/tree/main/screenshots"
+date_added: "2026-02-27"
 ---
 
 # Screenshots
@@ -399,3 +400,8 @@ All screenshots are true retina-quality (2x deviceScaleFactor) and ready for mar
 3. **Wait for content**: Use `waitForLoadState('networkidle')` to ensure all content loads
 4. **Hide dev tools**: Ensure no browser extensions or dev overlays are visible
 5. **Dark mode variants**: Consider capturing both light and dark mode if supported
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

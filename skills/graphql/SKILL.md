@@ -1,68 +1,53 @@
 ---
 name: graphql
-description: "GraphQL gives clients exactly the data they need - no more, no less. One endpoint, typed schema, introspection. But the flexibility that makes it powerful also makes it dangerous. Without proper controls, clients can craft queries that bring down your server.  This skill covers schema design, resolvers, DataLoader for N+1 prevention, federation for microservices, and client integration with Apollo/urql. Key insight: GraphQL is a contract. The schema is the API documentation. Design it carefully."
+description: GraphQL gives clients exactly the data they need - no more, no
+  less. One endpoint, typed schema, introspection. But the flexibility that
+  makes it powerful also makes it dangerous. Without proper controls, clients
+  can craft queries that bring down your server.
+risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # GraphQL
 
-You're a developer who has built GraphQL APIs at scale. You've seen the
-N+1 query problem bring down production servers. You've watched clients
-craft deeply nested queries that took minutes to resolve. You know that
-GraphQL's power is also its danger.
+GraphQL gives clients exactly the data they need - no more, no less. One
+endpoint, typed schema, introspection. But the flexibility that makes it
+powerful also makes it dangerous. Without proper controls, clients can
+craft queries that bring down your server.
 
-Your hard-won lessons: The team that didn't use DataLoader had unusable
-APIs. The team that allowed unlimited query depth got DDoS'd by their
-own clients. The team that made everything nullable couldn't distinguish
-errors from empty data. You've l
+This skill covers schema design, resolvers, DataLoader for N+1 prevention,
+federation for microservices, and client integration with Apollo/urql.
+Key insight: GraphQL is a contract. The schema is the API documentation.
+Design it carefully.
 
-## Capabilities
+2025 lesson: GraphQL isn't always the answer. For simple CRUD, REST is
+simpler. For high-performance public APIs, REST with caching wins. Use
+GraphQL when you have complex data relationships and diverse client needs.
 
-- graphql-schema-design
-- graphql-resolvers
-- graphql-federation
-- graphql-subscriptions
-- graphql-dataloader
-- graphql-codegen
-- apollo-server
-- apollo-client
-- urql
+## Detailed Guide
 
-## Patterns
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-### Schema Design
+## When to Use
+- User mentions or implies: graphql
+- User mentions or implies: graphql schema
+- User mentions or implies: graphql resolver
+- User mentions or implies: apollo server
+- User mentions or implies: apollo client
+- User mentions or implies: graphql federation
+- User mentions or implies: dataloader
+- User mentions or implies: graphql codegen
+- User mentions or implies: graphql query
+- User mentions or implies: graphql mutation
 
-Type-safe schema with proper nullability
+## Example
 
-### DataLoader for N+1 Prevention
+**User request:**
 
-Batch and cache database queries
+> Use @graphql for this task: GraphQL gives clients exactly the data they need - no more, no less.
 
-### Apollo Client Caching
-
-Normalized cache with type policies
-
-## Anti-Patterns
-
-### ❌ No DataLoader
-
-### ❌ No Query Depth Limiting
-
-### ❌ Authorization in Schema
-
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Each resolver makes separate database queries | critical | # USE DATALOADER |
-| Deeply nested queries can DoS your server | critical | # LIMIT QUERY DEPTH AND COMPLEXITY |
-| Introspection enabled in production exposes your schema | high | # DISABLE INTROSPECTION IN PRODUCTION |
-| Authorization only in schema directives, not resolvers | high | # AUTHORIZE IN RESOLVERS |
-| Authorization on queries but not on fields | high | # FIELD-LEVEL AUTHORIZATION |
-| Non-null field failure nullifies entire parent | medium | # DESIGN NULLABILITY INTENTIONALLY |
-| Expensive queries treated same as cheap ones | medium | # QUERY COST ANALYSIS |
-| Subscriptions not properly cleaned up | medium | # PROPER SUBSCRIPTION CLEANUP |
-
-## Related Skills
-
-Works well with: `backend`, `postgres-wizard`, `nextjs-app-router`, `react-patterns`
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,13 +1,9 @@
 ---
 name: cloud-architect
-description: Expert cloud architect specializing in AWS/Azure/GCP multi-cloud
-  infrastructure design, advanced IaC (Terraform/OpenTofu/CDK), FinOps cost
-  optimization, and modern architectural patterns. Masters serverless,
-  microservices, security, compliance, and disaster recovery. Use PROACTIVELY
-  for cloud architecture, cost optimization, migration planning, or multi-cloud
-  strategies.
-metadata:
-  model: opus
+description: Expert cloud architect specializing in AWS/Azure/GCP multi-cloud infrastructure design, advanced IaC (Terraform/OpenTofu/CDK), FinOps cost optimization, and modern architectural patterns.
+risk: critical
+source: community
+date_added: '2026-02-27'
 ---
 
 ## Use this skill when
@@ -133,3 +129,8 @@ Expert cloud architect with deep knowledge of AWS, Azure, GCP, and emerging clou
 - "Implement a disaster recovery solution with 4-hour RTO across multiple cloud providers"
 - "Design a compliant architecture for healthcare data processing meeting HIPAA requirements"
 - "Create a FinOps strategy with automated cost optimization and chargeback reporting"
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,50 +1,41 @@
 ---
 name: plaid-fintech
-description: "Expert patterns for Plaid API integration including Link token flows, transactions sync, identity verification, Auth for ACH, balance checks, webhook handling, and fintech compliance best practices. Use when: plaid, bank account linking, bank connection, ach, account aggregation."
+description: Expert patterns for Plaid API integration including Link token
+  flows, transactions sync, identity verification, Auth for ACH, balance checks,
+  webhook handling, and fintech compliance best practices.
+risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # Plaid Fintech
 
-## Patterns
+Expert patterns for Plaid API integration including Link token flows,
+transactions sync, identity verification, Auth for ACH, balance checks,
+webhook handling, and fintech compliance best practices.
 
-### Link Token Creation and Exchange
+## Detailed Guide
 
-Create a link_token for Plaid Link, exchange public_token for access_token.
-Link tokens are short-lived, one-time use. Access tokens don't expire but
-may need updating when users change passwords.
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
+## When to Use
+- User mentions or implies: plaid
+- User mentions or implies: bank account linking
+- User mentions or implies: bank connection
+- User mentions or implies: ach
+- User mentions or implies: account aggregation
+- User mentions or implies: bank transactions
+- User mentions or implies: open banking
+- User mentions or implies: fintech
+- User mentions or implies: identity verification banking
 
-### Transactions Sync
+## Example
 
-Use /transactions/sync for incremental transaction updates. More efficient
-than /transactions/get. Handle webhooks for real-time updates instead of
-polling.
+**User request:**
 
+> Use @plaid-fintech for this task: Expert patterns for Plaid API integration including Link token flows, transactions sync, identity verification, Auth for ACH, balance checks, webhook handling, and fintech compliance best practices.
 
-### Item Error Handling and Update Mode
-
-Handle ITEM_LOGIN_REQUIRED errors by putting users through Link update mode.
-Listen for PENDING_DISCONNECT webhook to proactively prompt users.
-
-
-## Anti-Patterns
-
-### ❌ Storing Access Tokens in Plain Text
-
-### ❌ Polling Instead of Webhooks
-
-### ❌ Ignoring Item Errors
-
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Issue | critical | See docs |
-| Issue | high | See docs |
-| Issue | high | See docs |
-| Issue | high | See docs |
-| Issue | medium | See docs |
-| Issue | medium | See docs |
-| Issue | medium | See docs |
-| Issue | medium | See docs |
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,40 +1,37 @@
 ---
 name: commit
-description: "Create commit messages following Sentry conventions. Use when committing code changes, writing commit messages, or formatting git history. Follows conventional commits with Sentry-specific issue references."
-source: "https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/commit"
-risk: safe
+description: ALWAYS use this skill when committing code changes — never commit directly without it. Creates commits following Sentry conventions with proper conventional commit format and issue references. Trigger on any commit, git commit, save changes, or commit message task.
+risk: critical
+source: community
+date_added: "2026-09-04"
 ---
 
 # Sentry Commit Messages
 
 Follow these conventions when creating commits for Sentry projects.
 
-## When to Use This Skill
-
-Use this skill when:
-- Committing code changes
-- Writing commit messages
-- Formatting git history
-- Following Sentry commit conventions
-- Referencing Sentry issues in commits
+## When to Use
+- The user asks to commit code, prepare a commit message, or save changes in git.
+- You need Sentry-style commit formatting with conventional commit structure and issue references.
+- The task requires enforcing branch safety before committing, especially avoiding direct commits on `main` or `master`.
 
 ## Prerequisites
 
-Before committing, ensure you're working on a feature branch, not the main branch.
+Before committing, always check the current branch:
 
 ```bash
-# Check current branch
 git branch --show-current
 ```
 
-If you're on `main` or `master`, create a new branch first:
+**If you're on `main` or `master`, you MUST create a feature branch first** — unless the user explicitly asked to commit to main and the server permits direct pushes. A user request does not bypass protected-branch rules; when the remote rejects direct updates, use the repository's required pull-request path. Do not ask the user whether to create a branch; just proceed with branch creation. The `create-branch` skill will still propose a branch name for the user to confirm.
+
+Use the `create-branch` skill to create the branch. After `create-branch` completes, verify the current branch has changed before proceeding:
 
 ```bash
-# Create and switch to a new branch
-git checkout -b <type>/<short-description>
+git branch --show-current
 ```
 
-Branch naming should follow the pattern: `<type>/<short-description>` where type matches the commit type (e.g., `feat/add-user-auth`, `fix/null-pointer-error`, `ref/extract-validation`).
+If still on `main` or `master` (e.g., the user aborted branch creation), stop — do not commit.
 
 ## Format
 
@@ -169,3 +166,9 @@ Reason: Caused performance regression in production.
 ## References
 
 - [Sentry Commit Messages](https://develop.sentry.dev/engineering-practices/commit-messages/)
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Direct-to-main instructions remain subordinate to server-side branch protection and required checks.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

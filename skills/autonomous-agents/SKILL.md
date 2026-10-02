@@ -1,68 +1,82 @@
 ---
 name: autonomous-agents
-description: "Autonomous agents are AI systems that can independently decompose goals, plan actions, execute tools, and self-correct without constant human guidance. The challenge isn't making them capable - it's making them reliable. Every extra decision multiplies failure probability.  This skill covers agent loops (ReAct, Plan-Execute), goal decomposition, reflection patterns, and production reliability. Key insight: compounding error rates kill autonomous agents. A 95% success rate per step drops to 60% b"
+description: Autonomous agents are AI systems that can independently decompose
+  goals, plan actions, execute tools, and self-correct without constant human
+  guidance. The challenge isn't making them capable - it's making them reliable.
+  Every extra decision multiplies failure probability.
+risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # Autonomous Agents
 
-You are an agent architect who has learned the hard lessons of autonomous AI.
-You've seen the gap between impressive demos and production disasters. You know
-that a 95% success rate per step means only 60% by step 10.
+Autonomous agents are AI systems that can independently decompose goals,
+plan actions, execute tools, and self-correct without constant human guidance.
+The challenge isn't making them capable - it's making them reliable. Every
+extra decision multiplies failure probability.
 
-Your core insight: Autonomy is earned, not granted. Start with heavily
-constrained agents that do one thing reliably. Add autonomy only as you prove
-reliability. The best agents look less impressive but work consistently.
+This skill covers agent loops (ReAct, Plan-Execute), goal decomposition,
+reflection patterns, and production reliability. Key insight: compounding
+error rates kill autonomous agents. A 95% success rate per step drops to
+60% by step 10. Build for reliability first, autonomy second.
 
-You push for guardrails before capabilities, logging befor
+2025 lesson: The winners are constrained, domain-specific agents with clear
+boundaries, not "autonomous everything." Treat AI outputs as proposals,
+not truth.
 
-## Capabilities
+## Detailed Guide
 
-- autonomous-agents
-- agent-loops
-- goal-decomposition
-- self-correction
-- reflection-patterns
-- react-pattern
-- plan-execute
-- agent-reliability
-- agent-guardrails
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-## Patterns
+## Track context usage
+class ContextManager:
+    def __init__(self, max_tokens=100000):
+        self.max_tokens = max_tokens
+        self.messages = []
 
-### ReAct Agent Loop
+    def add(self, message):
+        self.messages.append(message)
+        self.maybe_compact()
 
-Alternating reasoning and action steps
+    def maybe_compact(self):
+        if self.token_count() > self.max_tokens * 0.8:
+            self.compact()
 
-### Plan-Execute Pattern
+    def compact(self):
+        # Always keep: system prompt
+        system = self.messages[0]
 
-Separate planning phase from execution
+        # Always keep: last N messages
+        recent = self.messages[-10:]
 
-### Reflection Pattern
+        # Summarize: everything else
+        middle = self.messages[1:-10]
+        if middle:
+            summary = summarize_messages(middle)
+            self.messages = [system, summary] + recent
 
-Self-evaluation and iterative improvement
+## When to Use
+- User mentions or implies: autonomous agent
+- User mentions or implies: autogpt
+- User mentions or implies: babyagi
+- User mentions or implies: self-prompting
+- User mentions or implies: goal decomposition
+- User mentions or implies: react pattern
+- User mentions or implies: agent loop
+- User mentions or implies: self-correcting agent
+- User mentions or implies: reflection agent
+- User mentions or implies: langgraph
+- User mentions or implies: agentic ai
+- User mentions or implies: agent planning
 
-## Anti-Patterns
+## Example
 
-### ❌ Unbounded Autonomy
+**User request:**
 
-### ❌ Trusting Agent Outputs
+> Use @autonomous-agents for this task: Autonomous agents are AI systems that can independently decompose goals, plan actions, execute tools, and self-correct without constant human guidance.
 
-### ❌ General-Purpose Autonomy
-
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Issue | critical | ## Reduce step count |
-| Issue | critical | ## Set hard cost limits |
-| Issue | critical | ## Test at scale before production |
-| Issue | high | ## Validate against ground truth |
-| Issue | high | ## Build robust API clients |
-| Issue | high | ## Least privilege principle |
-| Issue | medium | ## Track context usage |
-| Issue | medium | ## Structured logging |
-
-## Related Skills
-
-Works well with: `agent-tool-builder`, `agent-memory-systems`, `multi-agent-orchestration`, `agent-evaluation`
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

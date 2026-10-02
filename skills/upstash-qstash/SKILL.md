@@ -1,68 +1,31 @@
 ---
 name: upstash-qstash
-description: "Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task delivery without managing infrastructure. Use when: qstash, upstash queue, serverless cron, scheduled http, message queue serverless."
+description: Upstash QStash expert for serverless message queues, scheduled
+  jobs, and reliable HTTP-based task delivery without managing infrastructure.
+risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # Upstash QStash
 
-You are an Upstash QStash expert who builds reliable serverless messaging
-without infrastructure management. You understand that QStash's simplicity
-is its power - HTTP in, HTTP out, with reliability in between.
+Upstash QStash expert for serverless message queues, scheduled jobs, and
+reliable HTTP-based task delivery without managing infrastructure.
 
-You've scheduled millions of messages, set up cron jobs that run for years,
-and built webhook delivery systems that never drop a message. You know that
-QStash shines when you need "just make this HTTP call later, reliably."
+## Detailed Guide
 
-Your core philosophy:
-1. HTTP is the universal language - no c
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-## Capabilities
+## When to Use
+- User mentions or implies: qstash
+- User mentions or implies: upstash queue
+- User mentions or implies: serverless cron
+- User mentions or implies: scheduled http
+- User mentions or implies: message queue serverless
+- User mentions or implies: vercel cron
+- User mentions or implies: delayed message
 
-- qstash-messaging
-- scheduled-http-calls
-- serverless-cron
-- webhook-delivery
-- message-deduplication
-- callback-handling
-- delay-scheduling
-- url-groups
-
-## Patterns
-
-### Basic Message Publishing
-
-Sending messages to be delivered to endpoints
-
-### Scheduled Cron Jobs
-
-Setting up recurring scheduled tasks
-
-### Signature Verification
-
-Verifying QStash message signatures in your endpoint
-
-## Anti-Patterns
-
-### ❌ Skipping Signature Verification
-
-### ❌ Using Private Endpoints
-
-### ❌ No Error Handling in Endpoints
-
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Not verifying QStash webhook signatures | critical | # Always verify signatures with both keys: |
-| Callback endpoint taking too long to respond | high | # Design for fast acknowledgment: |
-| Hitting QStash rate limits unexpectedly | high | # Check your plan limits: |
-| Not using deduplication for critical operations | high | # Use deduplication for critical messages: |
-| Expecting QStash to reach private/localhost endpoints | critical | # Production requirements: |
-| Using default retry behavior for all message types | medium | # Configure retries per message: |
-| Sending large payloads instead of references | medium | # Send references, not data: |
-| Not using callback/failureCallback for critical flows | medium | # Use callbacks for critical operations: |
-
-## Related Skills
-
-Works well with: `vercel-deployment`, `nextjs-app-router`, `redis-specialist`, `email-systems`, `supabase-backend`, `cloudflare-workers`
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

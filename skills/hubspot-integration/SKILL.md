@@ -1,42 +1,37 @@
 ---
 name: hubspot-integration
-description: "Expert patterns for HubSpot CRM integration including OAuth authentication, CRM objects, associations, batch operations, webhooks, and custom objects. Covers Node.js and Python SDKs. Use when: hubspot, hubspot api, hubspot crm, hubspot integration, contacts api."
+description: Expert patterns for HubSpot CRM integration including OAuth
+  authentication, CRM objects, associations, batch operations, webhooks, and
+  custom objects. Covers Node.js and Python SDKs.
+risk: critical
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # HubSpot Integration
 
-## Patterns
+Expert patterns for HubSpot CRM integration including OAuth authentication,
+CRM objects, associations, batch operations, webhooks, and custom objects.
+Covers Node.js and Python SDKs.
 
-### OAuth 2.0 Authentication
+## Detailed Guide
 
-Secure authentication for public apps
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-### Private App Token
+## When to Use
+- User mentions or implies: hubspot
+- User mentions or implies: hubspot api
+- User mentions or implies: hubspot crm
+- User mentions or implies: hubspot integration
+- User mentions or implies: contacts api
 
-Authentication for single-account integrations
+## Example
 
-### CRM Object CRUD Operations
+**User request:**
 
-Create, read, update, delete CRM records
+> Use @hubspot-integration for this task: Expert patterns for HubSpot CRM integration including OAuth authentication, CRM objects, associations, batch operations, webhooks, and custom objects.
 
-## Anti-Patterns
-
-### ❌ Using Deprecated API Keys
-
-### ❌ Individual Requests Instead of Batch
-
-### ❌ Polling Instead of Webhooks
-
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Issue | high | See docs |
-| Issue | high | See docs |
-| Issue | critical | See docs |
-| Issue | high | See docs |
-| Issue | critical | See docs |
-| Issue | medium | See docs |
-| Issue | high | See docs |
-| Issue | medium | See docs |
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

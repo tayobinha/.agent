@@ -1,6 +1,9 @@
 ---
 name: javascript-typescript-typescript-scaffold
 description: "You are a TypeScript project architecture expert specializing in scaffolding production-ready Node.js and frontend applications. Generate complete project structures with modern tooling (pnpm, Vite, N"
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
 # TypeScript Project Scaffolding
@@ -359,3 +362,8 @@ export default defineConfig({
 6. **Development Tools**: .env.example, .gitignore, linting config
 
 Focus on creating production-ready TypeScript projects with modern tooling, strict type safety, and comprehensive testing setup.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,10 +1,20 @@
 ---
-name: File Path Traversal Testing
-description: This skill should be used when the user asks to "test for directory traversal", "exploit path traversal vulnerabilities", "read arbitrary files through web applications", "find LFI vulnerabilities", or "access files outside web root". It provides comprehensive file path traversal attack and testing methodologies.
-metadata:
-  author: zebbern
-  version: "1.1"
+name: file-path-traversal
+description: "Identify and exploit file path traversal (directory traversal) vulnerabilities that allow attackers to read arbitrary files on the server, potentially including sensitive configuration files, credentials, and source code."
+risk: offensive
+source: community
+author: zebbern
+date_added: "2026-02-27"
 ---
+> **⚠️ AUTHORIZED USE ONLY**
+> This skill is for educational purposes or authorized security assessments only.
+> You must have explicit, written permission from the system owner before using this tool.
+> Misuse of this tool is illegal and strictly prohibited.
+
+> **Mandatory confirmation gate**
+> Before any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target, ask for the exact target URL, IP, account, or resource and confirmation of written authorization and permitted scope.
+> Show the exact command(s), explain their expected effect, and wait for explicit confirmation in the current conversation.
+> Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
 
 # File Path Traversal Testing
 
@@ -484,3 +494,6 @@ def safe_file_access(base_dir, filename):
 | No response difference | Try encoding, blind traversal, different files |
 | Payload blocked | Use encoding variants, nested sequences, case variations |
 | Cannot escalate to RCE | Check logs, PHP wrappers, file upload, session poisoning |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

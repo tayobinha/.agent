@@ -1,14 +1,9 @@
 ---
 name: schema-markup
-description: >
-  Design, validate, and optimize schema.org structured data for eligibility,
-  correctness, and measurable SEO impact. Use when the user wants to add, fix,
-  audit, or scale schema markup (JSON-LD) for rich results. This skill evaluates
-  whether schema should be implemented, what types are valid, and how to deploy
-  safely according to Google guidelines.
-allowed-tools: Read, Glob, Grep
----
-
+description: Design, validate, and optimize schema.org structured data for eligibility, correctness, and measurable SEO impact.
+risk: critical
+source: community
+date_added: '2026-02-27'
 ---
 
 # Schema Markup & Structured Data
@@ -114,6 +109,17 @@ This is a **diagnostic score**, not a promise of rich results.
 - No attempt to game rich results
 
 ---
+
+### Scoring Guidance per Category
+
+For each of the six scoring categories, allot points within the category's weight band using these anchors:
+
+- **0–15% of band:** Schema describes none of the visible content (e.g. you would mark `description` for a `Recipe` page that has no recipe markup yet).
+- **16–40% of band:** Partial alignment — the schema describes some but not all of the visible content, OR maps to a less-common schema.org type.
+- **41–80% of band:** Strong alignment — the schema describes the bulk of the visible content with a common schema.org type.
+- **81–100% of band:** Exemplary — the schema covers all visible content, uses a Google-supported rich-result type, and includes all required properties.
+
+Sum the per-category scores to compute the Eligibility Index used in §"Eligibility Bands" below.
 
 ### Eligibility Bands (Required)
 
@@ -358,3 +364,11 @@ Where and how to add it
 - **seo-audit** – Full SEO review including schema
 - **programmatic-seo** – Templated schema at scale
 - **analytics-tracking** – Measure rich result impact
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

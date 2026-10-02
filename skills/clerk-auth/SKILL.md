@@ -1,56 +1,33 @@
 ---
 name: clerk-auth
-description: "Expert patterns for Clerk auth implementation, middleware, organizations, webhooks, and user sync Use when: adding authentication, clerk auth, user authentication, sign in, sign up."
+description: Expert patterns for Clerk auth implementation, middleware,
+  organizations, webhooks, and user sync
+risk: safe
 source: vibeship-spawner-skills (Apache 2.0)
+date_added: 2026-02-27
 ---
 
 # Clerk Authentication
 
-## Patterns
+Expert patterns for Clerk auth implementation, middleware, organizations, webhooks, and user sync
 
-### Next.js App Router Setup
+## Detailed Guide
 
-Complete Clerk setup for Next.js 14/15 App Router.
+Read [the detailed guide](references/detailed-guide.md) before executing this skill. It retains the complete procedure and reference material. Treat its safety, prerequisites, and validation requirements as mandatory. For focused work, load the relevant sections; for end-to-end work, read the guide completely.
 
-Includes ClerkProvider, environment variables, and basic
-sign-in/sign-up components.
+## When to Use
+- User mentions or implies: adding authentication
+- User mentions or implies: clerk auth
+- User mentions or implies: user authentication
+- User mentions or implies: sign in
+- User mentions or implies: sign up
+- User mentions or implies: user management
+- User mentions or implies: multi-tenancy
+- User mentions or implies: organizations
+- User mentions or implies: sso
+- User mentions or implies: single sign-on
 
-Key components:
-- ClerkProvider: Wraps app for auth context
-- <SignIn />, <SignUp />: Pre-built auth forms
-- <UserButton />: User menu with session management
-
-
-### Middleware Route Protection
-
-Protect routes using clerkMiddleware and createRouteMatcher.
-
-Best practices:
-- Single middleware.ts file at project root
-- Use createRouteMatcher for route groups
-- auth.protect() for explicit protection
-- Centralize all auth logic in middleware
-
-
-### Server Component Authentication
-
-Access auth state in Server Components using auth() and currentUser().
-
-Key functions:
-- auth(): Returns userId, sessionId, orgId, claims
-- currentUser(): Returns full User object
-- Both require clerkMiddleware to be configured
-
-
-## ⚠️ Sharp Edges
-
-| Issue | Severity | Solution |
-|-------|----------|----------|
-| Issue | critical | See docs |
-| Issue | high | See docs |
-| Issue | high | See docs |
-| Issue | high | See docs |
-| Issue | medium | See docs |
-| Issue | medium | See docs |
-| Issue | medium | See docs |
-| Issue | medium | See docs |
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

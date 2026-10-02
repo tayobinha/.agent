@@ -1,6 +1,9 @@
 ---
 name: grafana-dashboards
-description: Create and manage production Grafana dashboards for real-time visualization of system and application metrics. Use when building monitoring dashboards, visualizing metrics, or creating operational observability interfaces.
+description: "Create and manage production-ready Grafana dashboards for comprehensive system observability."
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
 # Grafana Dashboards
@@ -114,7 +117,7 @@ Design effective Grafana dashboards for monitoring applications, infrastructure,
 }
 ```
 
-**Reference:** See `assets/api-dashboard.json`
+**Reference:** See [inline example](#api-monitoring-dashboard)
 
 ## Panel Types
 
@@ -303,7 +306,7 @@ providers:
 - Pod count by namespace
 - Node status
 
-**Reference:** See `assets/infrastructure-dashboard.json`
+**Reference:** See [inline example](#infrastructure-dashboard)
 
 ### Database Dashboard
 
@@ -316,7 +319,7 @@ providers:
 - Replication lag
 - Slow queries
 
-**Reference:** See `assets/database-dashboard.json`
+**Reference:** See [inline example](#database-dashboard)
 
 ### Application Dashboard
 
@@ -370,12 +373,17 @@ resource "grafana_folder" "monitoring" {
 
 ## Reference Files
 
-- `assets/api-dashboard.json` - API monitoring dashboard
-- `assets/infrastructure-dashboard.json` - Infrastructure dashboard
-- `assets/database-dashboard.json` - Database monitoring dashboard
+- [inline example](#api-monitoring-dashboard) - API monitoring dashboard
+- [inline example](#infrastructure-dashboard) - Infrastructure dashboard
+- [inline example](#database-dashboard) - Database monitoring dashboard
 - `references/dashboard-design.md` - Dashboard design guide
 
 ## Related Skills
 
 - `prometheus-configuration` - For metric collection
 - `slo-implementation` - For SLO dashboards
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

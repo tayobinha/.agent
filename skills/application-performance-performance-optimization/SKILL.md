@@ -1,6 +1,9 @@
 ---
 name: application-performance-performance-optimization
 description: "Optimize end-to-end application performance with profiling, observability, and backend/frontend tuning. Use when coordinating performance optimization across the stack."
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
 Optimize application performance end-to-end using specialized performance and optimization agents:
@@ -152,3 +155,14 @@ Optimize application performance end-to-end using specialized performance and op
 - **Monitoring Coverage**: 100% of critical paths instrumented with alerting
 
 Performance optimization target: $ARGUMENTS
+
+## Example
+
+**User request:**
+
+> Coordinate performance optimization across backend, frontend, and infrastructure.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,11 +1,19 @@
 ---
-name: SSH Penetration Testing
-description: This skill should be used when the user asks to "pentest SSH services", "enumerate SSH configurations", "brute force SSH credentials", "exploit SSH vulnerabilities", "perform SSH tunneling", or "audit SSH security". It provides comprehensive SSH penetration testing methodologies and techniques.
-metadata:
-  author: zebbern
-  version: "1.1"
+name: ssh-penetration-testing
+description: "Conduct comprehensive SSH security assessments including enumeration, credential attacks, vulnerability exploitation, tunneling techniques, and post-exploitation activities. This skill covers the complete methodology for testing SSH service security."
+risk: offensive
+source: community
+author: zebbern
+date_added: "2026-02-27"
 ---
-
+> **⚠️ AUTHORIZED USE ONLY**
+> This skill is for educational purposes or authorized security assessments only.
+> You must have explicit, written permission from the system owner before using this tool.
+> Misuse of this tool is illegal and strictly prohibited.
+> **Mandatory confirmation gate**
+> Before any command that probes, exploits, changes, persists on, extracts data from, or attempts credential access against a target, ask for the exact target URL, IP, account, or resource and confirmation of written authorization and permitted scope.
+> Show the exact command(s), explain their expected effect, and wait for explicit confirmation in the current conversation.
+> Without that confirmation, remain read-only and provide defensive guidance only. Prefer a sandbox, disposable VM, or controlled lab.
 # SSH Penetration Testing
 
 ## Purpose
@@ -486,3 +494,6 @@ sessions -i 1
 | Connection Refused | Verify SSH running; check firewall; confirm port; test from different IP |
 | Authentication Failures | Verify username; check password policy; key permissions (600); authorized_keys format |
 | Tunnel Not Working | Check GatewayPorts/AllowTcpForwarding in sshd_config; verify firewall; use `ssh -v` |
+
+## When to Use
+This skill is applicable to execute the workflow or actions described in the overview.

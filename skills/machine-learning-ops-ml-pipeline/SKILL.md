@@ -1,6 +1,9 @@
 ---
 name: machine-learning-ops-ml-pipeline
 description: "Design and implement a complete ML pipeline for: $ARGUMENTS"
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
 # Machine Learning Pipeline - Multi-Agent MLOps Orchestration
@@ -312,3 +315,14 @@ Upon completion, the orchestrated pipeline will provide:
 - CI/CD pipelines for continuous improvement
 - Cost optimization and scaling strategies
 - Disaster recovery and rollback procedures
+
+## Example
+
+**User request:**
+
+> Design and implement a complete ML pipeline for: $ARGUMENTS.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

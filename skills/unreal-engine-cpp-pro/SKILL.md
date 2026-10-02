@@ -1,8 +1,9 @@
 ---
 name: unreal-engine-cpp-pro
-description: Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices.
+description: "Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices."
 risk: safe
 source: self
+date_added: "2026-02-27"
 ---
 
 # Unreal Engine C++ Pro
@@ -10,7 +11,6 @@ source: self
 This skill provides expert-level guidelines for developing with Unreal Engine 5 using C++. It focuses on writing robust, performant, and standard-compliant code.
 
 ## When to Use
-
 Use this skill when:
 - Developing C++ code for Unreal Engine 5.x projects
 - Writing Actors, Components, or UObject-derived classes
@@ -112,3 +112,8 @@ void AMyCharacter::Equip() {
 - [ ] Are all `UObject*` members wrapped in `UPROPERTY`?
 - [ ] Are hard references (TSubclassOf) causing load chains? Can they be Soft Ptrs?
 - [ ] Did you clean up verified delegates in `EndPlay`?
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

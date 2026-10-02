@@ -1,6 +1,9 @@
 ---
 name: postmortem-writing
-description: Write effective blameless postmortems with root cause analysis, timelines, and action items. Use when conducting incident reviews, writing postmortem documents, or improving incident response processes.
+description: "Comprehensive guide to writing effective, blameless postmortems that drive organizational learning and prevent incident recurrence."
+risk: none
+source: community
+date_added: "2026-02-27"
 ---
 
 # Postmortem Writing
@@ -164,7 +167,7 @@ The deployment completed at 14:23, but the first alert didn't fire until 14:31 (
 ### Customer Impact
 - 12,000 unique customers affected
 - Average impact duration: 35 minutes
-- 847 support tickets (23% of affected users)
+- 847 support tickets (about 7.1% of the affected-user count; not necessarily unique users)
 - Customer satisfaction score dropped 12 points
 
 ### Business Impact
@@ -221,8 +224,8 @@ The deployment completed at 14:23, but the first alert didn't fire until 14:31 (
 - 2023-11-02: Similar connection issue in User Service (POSTMORTEM-42)
 
 ### References
-- [Connection Pool Best Practices](internal-wiki/connection-pools)
-- [Deployment Runbook](internal-wiki/deployment-runbook)
+- Connection Pool Best Practices
+- Deployment Runbook
 ```
 
 ### Template 2: 5 Whys Analysis
@@ -384,3 +387,8 @@ Don't full-flush cache in production; use targeted invalidation.
 - [Google SRE - Postmortem Culture](https://sre.google/sre-book/postmortem-culture/)
 - [Etsy's Blameless Postmortems](https://codeascraft.com/2012/05/22/blameless-postmortems/)
 - [PagerDuty Postmortem Guide](https://postmortems.pagerduty.com/)
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

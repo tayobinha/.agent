@@ -1,6 +1,9 @@
 ---
 name: incident-response-incident-response
 description: "Use when working with incident response incident response"
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
 ## Use this skill when
@@ -166,3 +169,14 @@ Orchestrate multi-agent incident response with modern SRE practices for rapid re
 - Timestamp all significant events
 
 Production incident requiring immediate response: $ARGUMENTS
+
+## Example
+
+**User request:**
+
+> Use @incident-response-incident-response for this task: Use when working with incident response incident response.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

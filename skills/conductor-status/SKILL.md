@@ -1,8 +1,9 @@
 ---
 name: conductor-status
-description: Display project status, active tracks, and next actions
-metadata:
-  argument-hint: "[track-id] [--detailed]"
+description: "Display project status, active tracks, and next actions"
+risk: safe
+source: community
+date_added: "2026-02-27"
 ---
 
 # Conductor Status
@@ -336,3 +337,8 @@ If invoked with `--json`:
   "blockers": []
 }
 ```
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

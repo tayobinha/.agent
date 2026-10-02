@@ -1,10 +1,9 @@
 ---
 name: sales-automator
-description: Draft cold emails, follow-ups, and proposal templates. Creates
-  pricing pages, case studies, and sales scripts. Use PROACTIVELY for sales
-  outreach or lead nurturing.
-metadata:
-  model: haiku
+description: 'Draft cold emails, follow-ups, and proposal templates. Creates pricing pages, case studies, and sales scripts. Use PROACTIVELY for sales outreach or lead nurturing. '
+risk: none
+source: community
+date_added: '2026-02-27'
 ---
 
 ## Use this skill when
@@ -53,3 +52,14 @@ You are a sales automation specialist focused on conversions and relationships.
 - Tracking metrics to monitor
 
 Write conversationally. Show empathy for customer problems.
+
+## Example
+
+**User request:**
+
+> Draft cold emails, follow-ups, and proposal templates.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

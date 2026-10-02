@@ -1,6 +1,9 @@
 ---
 name: c4-architecture-c4-architecture
 description: "Generate comprehensive C4 architecture documentation for an existing repository/codebase using a bottom-up analysis approach."
+risk: critical
+source: community
+date_added: "2026-02-27"
 ---
 
 # C4 Architecture Documentation Workflow
@@ -387,3 +390,8 @@ This will:
 5. Create system context with personas and journeys
 
 All documentation written to: C4-Documentation/
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
